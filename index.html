@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: "Momo Trust Display", sans-serif;
+            background-color: #0f0f0f;
+        }
+        .nav{
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo
+        {
+            font-size:1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #5dd62c;
+            cursor: pointer;
+            /* margin-right: auto; */
+        }
+        .nvli{
+            list-style: none;
+            display: flex;
+            gap: 2.3rem;
+            /* margin-right: 6rem; */
+        }
+        .nvli li a{
+            position: relative;
+            text-decoration: none;
+            font-size: 1rem;
+            color: white;
+            font-weight:500 ;
+            letter-spacing: 0.5px;
+                transition: 0.1s ease-in-out;
+        }
+        a::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width:0%;
+            background: #5dd62c;
+            transition: all 0.3s ease;
+        }
+        .nvli li a:hover{
+            color: #5dd62c;
+            text-shadow: 0 0 10px #5dd62c;
+        }
+        .nvli li a:hover::after{
+            width: 100%;
+        }
+        .btns{
+            display: flex;
+        }
+        .btn1{
+            width: 120px;
+            padding:0.5rem 1.5rem;
+            border-radius: 10px;
+            background:#5dd62c;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 0 10px #5dd62c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+        .btn1:hover{
+            background: #ffffff;
+            box-shadow: 0 0 10px #ffffff;
+            color: #5dd62c;
+        }
+        .sidebar{
+            backdrop-filter:blur(30px);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            z-index: 999;
+            background-color: #0000004d;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .sidebar li{
+            list-style: none;
+            width: 100%;
+            padding:10px 30px;
+            transform: all 0.2s ease;
+        }
+        .sidebar li a{
+            position: relative;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ffffff;
+            width: 100%;
+        }
+        .sidebar li a:hover{
+            color: #5dd62c;
+            text-shadow: 0 0 10px #5dd62c;
+        }
+        .sidebar li a:hover::after{
+            width: 100%;
+        }
+        svg{
+            margin: 10px;
+            fill: #ffffff;
+            cursor: pointer;
+            display: none;
+        }
+        @media (max-width:850px){
+            .hide,.btns{
+                display: none;
+            }
+            svg{
+                display: block;
+            }
+        }
+        @media(max-width:500px)
+        {
+            .sidebar{
+                width: 100%;
+            }
+        }
+
+        
+
+    </style>
+</head>
+<body>     
+    <nav class="nav">
+        <div class="logo">Coderz</div>
+             <ul class="sidebar">
+                <svg onclick=hidesidebar() xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Policy</a></li>
+                
+            </ul>
+
+            <ul class="nvli">
+                <li class="hide"><a href="#">Home</a></li>
+                <li class="hide"><a href="#">Services</a></li>
+                <li class="hide"><a href="#">Portfolio</a></li>
+                <li class="hide"><a href="#">Policy</a></li>
+            </ul>
+            <div class="btns">
+                <button class="btn1">Sign Up</button>
+            </div>
+                 <svg onclick=showsidebar() xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>
+    </nav>
+    <script>
+        function showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display ='flex'
+        }
+        function hidesidebar(){
+            const hidesidebar = document.querySelector('.sidebar')
+            hidesidebar.style.display ='none'
+        }
+    </script>
+</body>
+</html>
